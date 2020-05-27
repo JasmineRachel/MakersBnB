@@ -1,3 +1,5 @@
+require 'setup_test_database'
+
 feature 'registration' do
   scenario 'a user can sign up' do
     visit '/users/new'
@@ -7,6 +9,6 @@ feature 'registration' do
     fill_in('Password', with: 'password123')
     click_button('Login')
 
-    expect(page).to have_content "Welcome, test@example.com"
+    expect(page).to have_content "Test"
   end
 end
