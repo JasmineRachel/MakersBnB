@@ -9,10 +9,13 @@ class MakersBnb < Sinatra::Base
     erb :login
   end
 
-  get '/user/new' do
+  get '/users/new' do
     erb :signup
   end
 
+  post '/users/new' do
+    
+  end
 
   run! if app_file == $0
 end
