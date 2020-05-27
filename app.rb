@@ -9,7 +9,7 @@ class MakersBnb < Sinatra::Base
     erb :login
   end
 
-  get '/signup' do
+  get '/user/new' do
     erb :signup
   end
 
