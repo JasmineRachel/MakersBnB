@@ -5,6 +5,8 @@ source "https://rubygems.org"
 gem 'rspec'
 gem 'sinatra'
 gem 'capybara'
+gem 'rake'
+gem 'pg'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
