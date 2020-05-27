@@ -5,6 +5,7 @@ class MakersBnb < Sinatra::Base
   enable :sessions
   
   get '/' do
+    @user = User.find(session[:user_id])
     erb :index
   end
 
