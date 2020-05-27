@@ -2,8 +2,11 @@ require 'Space.rb'
 
 describe Space do
     it 'allow user to input a Space' do
-        Space.new
-        expect(Space.add('Audley')).to eq('Audley')
+
+        space = Space.add(address: 'Audley', no_bedrooms: '3')
+
+        expect(space['Address']).to eq("Audley")
+        expect(space['no_bedrooms']).to eq("3")
     end
 end
 
