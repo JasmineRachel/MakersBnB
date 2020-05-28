@@ -3,7 +3,7 @@ require './lib/user.rb'
 
 class MakersBnb < Sinatra::Base
   enable :sessions
-  
+
   get '/' do
     erb :index
   end
@@ -19,10 +19,6 @@ class MakersBnb < Sinatra::Base
   post '/users/new' do
     User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
     redirect '/success'
-  end
-
-  get '/login' do
-    erb :login
   end
 
   get '/success' do
