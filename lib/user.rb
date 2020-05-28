@@ -21,15 +21,26 @@ class User
     User.new(id: result[0]['user_id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
   end
 
-  def self.find(id:)
+  # def self.find(id:)
+  #   if ENV['ENVIRONMENT'] == 'test'
+  #     connection = PG.connect(dbname: 'makersbnb_test')
+  #   else
+  #     connection = PG.connect(dbname: 'makersbnb')
+  #   end
+  #
+  #   result = connection.exec("SELECT * FROM users WHERE user_id = #{id}")
+  #   User.new(id: result[0]['user_id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
+  #
+  # end
+
+  def self.authenticate(email:, password:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-
-    result = connection.exec("SELECT * FROM users WHERE user_id = #{id}")
-    User.new(id: result[0]['user_id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
-
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+      return unless result.any?
+    user = User.new(id: result[0]['user_id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
   end
 end

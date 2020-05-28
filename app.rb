@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/user.rb'
+require 'pg'
 
 class MakersBnb < Sinatra::Base
   enable :sessions
@@ -8,8 +9,16 @@ class MakersBnb < Sinatra::Base
     erb :index
   end
 
-  get '/login' do
+  get '/sessions/new' do
     erb :login
+  end
+
+  post '/sessions' do
+    result = connection.exec("SELECT * FROM users WHERE email = '#{params[:email]}'")
+    user = User.new(result[0]['id'], result[0]['email'], result[0]['password'])
+
+    session[:user_id] = user.id
+    redirect('/bookmarks')
   end
 
   get '/users/new' do
