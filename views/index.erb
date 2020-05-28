@@ -6,20 +6,24 @@
     <title></title>
   </head>
   <body style="background-image: url('https://cdn.fstoppers.com/styles/large-16-9/s3/lead/2019/09/a04b8e90a541a74b02f3a2a87d56aae6.jpg');background-size:100%;">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="/" style="color:white;">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions/new" style="color:white;">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/new" style="color:white;">Signup</a>
-      </li>
-      <li class="nav-item">
-        <p class="nav-link" style="color:white;"><%= " Welcome, #{@user == nil ? 'you are not logged in' : @user.first_name} " %></p>
-      </li>
-    </ul>
+    <div class="navbar navbar-toggleable-md navbar light bg faded">
+        <div class="nav mr-auto"
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="/" style="color:white;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sessions/new" style="color:white;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/new" style="color:white;">Signup</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav ml-auto">
+          <p class="nav-link" style="color:white;"><%= " Welcome, #{@user == nil ? 'you are not logged in' : @user.first_name} " %></p>
+        </div>
+    </div>
     <div class="page-header">
       <h1 style="text-align:center;padding-top:20%;font-family:helvetica;color:white;">MAKERS BnB</h1>
     </div>
