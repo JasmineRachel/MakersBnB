@@ -1,21 +1,27 @@
 require 'sinatra/base'
+require './lib/space.rb'
 
 class MakersBnb < Sinatra::Base
+
+  enable :sessions
+
   get '/' do
     'Hello World'
   end
 
-  get '/add_space' do
+  get '/spaces' do
+    @spaces = Space.all
+    erb :spaces
+  end
+
+  get '/spaces/new' do
+    @space = Space.all
     erb :'add_space'
   end
 
-  post '/add_space' do
-    erb :'add_space'
+  post '/spaces' do
     redirect :'index'
   end
-  
-
-  post 
 
   run! if app_file == $0
 end
