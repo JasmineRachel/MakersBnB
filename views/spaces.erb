@@ -1,11 +1,43 @@
-<ul>
-  <% @spaces.each do |space| %>
-    <li class="space" id="space">
-        <%=space.address%>
-    </li>
-    <li class="space" id="space">
-        <%=space.no_bedrooms%>
-    </li>
-    <% end %>
-</ul> 
-<p><%= @spaces %></p>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <h1> Spaces </h1>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Address</th>
+        <th scope="col">no_bedrooms</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @spaces.each do |space| %>
+      <tr>
+        <th scope="row">1</th>
+        <td> <%= space.address %> </td>
+        <td> <%= space.no_bedrooms %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </body>
+
+# <!--
+# <ul>
+#   <% @spaces.each do |space| %>
+#     <li class="space" id="space">
+#         <%=space.address%>
+#     </li>
+#     <li class="space" id="space">
+#         <%=space.no_bedrooms%>
+#     </li>
+#     <% end %>
+# </ul> 
+# <p><%= @spaces %></p>-->
+# </body>

@@ -21,23 +21,15 @@ class Space
     end
 
 
-    # def self.add(address:, no_bedrooms:)
-    #     if ENV['ENVIRONMENT'] == 'test'
-    #         connection = PG.connect(dbname: 'makersbnb_test')
-    #     else
-    #         connection = PG.connect(dbname: 'makersbnb')
-    #     end
-    #         connection.exec("INSERT INTO spaces (address, no_bedrooms) VALUES('#{address}', '#{no_bedrooms}') RETURNING address, no_bedrooms;")
-    # end
-
-    def self.add
+    def self.add(address:, no_bedrooms:)
         if ENV['ENVIRONMENT'] == 'test'
             connection = PG.connect(dbname: 'makersbnb_test')
         else
             connection = PG.connect(dbname: 'makersbnb')
         end
-            connection.exec("SELECT * FROM spaces;")
+            connection.exec("INSERT INTO spaces (address, no_bedrooms) VALUES('#{address}', '#{no_bedrooms}') RETURNING address, no_bedrooms;")
     end
+    
 end
 
 
