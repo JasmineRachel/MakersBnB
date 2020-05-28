@@ -6,6 +6,7 @@ class MakersBnb < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @user = session[:user]
     erb :index
   end
 
@@ -14,11 +15,9 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/sessions' do
-    result = connection.exec("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    user = User.new(result[0]['id'], result[0]['email'], result[0]['password'])
-
-    session[:user_id] = user.id
-    redirect('/bookmarks')
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user] = user
+    redirect('/')
   end
 
   get '/users/new' do

@@ -39,7 +39,7 @@ class User
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    result = connection.exec("SELECT * FROM users WHERE email = '#{email}'")
+    result = connection.exec("SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}'")
       return unless result.any?
     user = User.new(id: result[0]['user_id'], first_name: result[0]['first_name'], last_name: result[0]['last_name'], email: result[0]['email'], password: result[0]['password'])
   end
