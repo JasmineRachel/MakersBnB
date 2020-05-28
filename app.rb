@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/space.rb'
+require 'pg'
 
 class MakersBnb < Sinatra::Base
 
@@ -15,12 +16,13 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces/new' do
-    @space = Space.all
-    erb :'add_space'
+    erb :add_space
   end
 
   post '/spaces' do
-    redirect :'index'
+    Space.add(address: params[:address], no_bedrooms: params[:no_bedrooms])
+    # session[:space] = space
+    redirect :'/spaces'
   end
 
   run! if app_file == $0
