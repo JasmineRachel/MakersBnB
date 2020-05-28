@@ -1,0 +1,11 @@
+<ul>
+  <% @spaces.each do |space| %>
+    <li class="space" id="space">
+        <%=space.address%>
+    </li>
+    <li class="space" id="space">
+        <%=space.no_bedrooms%>
+    </li>
+    <% end %>
+</ul> 
+<p><%= @spaces %></p>

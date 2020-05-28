@@ -2,10 +2,13 @@ require 'pg'
 
 class Space
 
-    # def initialize(address:, no_bedrooms:)
-    #     @address = address
-    #     @no_bedrooms = no_bedrooms
-    # end
+    attr_reader :id, :address, :no_bedrooms
+
+    def initialize(id:, address:, no_bedrooms:)
+        @id = id
+        @address = address
+        @no_bedrooms = no_bedrooms
+    end
 
     def self.all
         if ENV['ENVIRONMENT'] == 'test'
@@ -14,7 +17,7 @@ class Space
             connection = PG.connect(dbname: 'makersbnb')
         end
         result = connection.exec("SELECT * FROM spaces;")
-        result.map { |spaces| spaces['address'] }
+        result.map { |space| Space.new(id: space['id'], address: space['address'], no_bedrooms: space['no_bedrooms']) }
     end
 
 

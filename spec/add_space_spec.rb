@@ -1,4 +1,4 @@
-require 'Space.rb'
+git statrequire 'Space.rb'
 
 describe Space do
     it 'allow user to input a Space' do
