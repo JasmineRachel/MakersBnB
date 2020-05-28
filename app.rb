@@ -18,8 +18,6 @@ class MakersBnb < Sinatra::Base
 
   post '/users/new' do
     User.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
-    @first_name = params["first_name"]
-    session[:first_name] = @first_name
     redirect '/success'
   end
 
@@ -28,9 +26,9 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/success' do
-    @first_name = session[:first_name]
+    @first_name = session[:user].first_name
+    erb :success
   end
-
 
   run! if app_file == $0
 end
