@@ -27,7 +27,7 @@
           </ul>
         </div>
         <div class="nav ml-auto">
-          <p class="nav-link" style="color:white;"><%= " Welcome, #{@user == nil ? 'you are not logged in' : @user.first_name}" %></p>
+          <p class="nav-link" style="color:white;"><%= " Welcome, #{@user != nil ? @user.first_name : 'you are not logged in'}" %></p>
         </div>
     </div>
     <div class="page-header">
