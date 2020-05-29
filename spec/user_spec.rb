@@ -36,7 +36,7 @@ RSpec.describe User do
     end
     it 'returns nil given an incorrect email address' do
       User.create(first_name: 'Test' , last_name: 'Testerson' ,email: 'test@example.com', password: 'password123')
-      expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to be_nil
+      expect(User.authenticate(email: 'nottherightemail@me.com', password: 'password123')).to eq 'Unsuccessful'
     end
   end
 end

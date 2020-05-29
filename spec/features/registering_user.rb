@@ -10,6 +10,6 @@ feature 'registration' do
     fill_in('Password', with: 'password123')
     click_button('Signup')
 
-    expect(page).to have_content "Welcome, Test"
+    expect(page).to have_content "Welcome Test, you have now registered for Makers BnB!"
   end
 end
