@@ -21,7 +21,6 @@ class MakersBnb < Sinatra::Base
 
   post '/spaces' do
     Space.add(address: params[:address], no_bedrooms: params[:no_bedrooms])
-    # session[:space] = space
     redirect :'/spaces'
   end
 
