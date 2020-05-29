@@ -23,7 +23,11 @@
       <label for="no_bedrooms"> Number of Bedrooms </label>
       <input type="text" class="form-control" id="no_bedrooms" name='no_bedrooms'>
     </div>
-    <button type="submit" class="btn btn-dark">Add Space</button>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      Select image to upload:
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <button type="submit" class="btn btn-dark">Add Space</button>
+      </form>
     </form>
   </body>
 </html>
