@@ -11,15 +11,21 @@
     <table class="table">
     <thead>
       <tr>
+        <th scope="col">Name</th>
         <th scope="col">Address</th>
+        <th scope="col">Description</th>
         <th scope="col">Number of Bedrooms</th>
+        <th scope="col">Price per Night</th>
       </tr>
     </thead>
     <tbody>
     <% @spaces.each do |space| %>
       <tr>
+        <td> <%= space.name %> </td>
         <td> <%= space.address %> </td>
+        <td> <%= space.description %> </td>
         <td> <%= space.no_bedrooms %> </td>
+        <td> <%= space.price_per_night %> </td>
       </tr>
       <% end %>
     </tbody>

@@ -12,6 +12,7 @@ class MakersBnb < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
+    p @spaces
     erb :spaces
   end
 
@@ -20,7 +21,8 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.add(address: params[:address], no_bedrooms: params[:no_bedrooms])
+    Space.add(name: params[:name], address: params[:address], description: params[:description], no_bedrooms: params[:no_bedrooms], price_per_night: params[:price_per_night])
+    p params[:name]
     redirect :'/spaces'
   end
 
