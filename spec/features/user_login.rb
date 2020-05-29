@@ -21,6 +21,6 @@ feature 'authentication' do
     click_button('Login')
 
     expect(page).not_to have_content 'Welcome, test@example.com'
-    expect(page).to have_content 'Welcome, you are not logged in'
+    expect(page).to have_content 'Your email or password is incorrect, please try again'
   end
 end

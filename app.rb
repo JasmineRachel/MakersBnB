@@ -11,13 +11,14 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/sessions/new' do
+    @log_in_status = session[:user]
     erb :login
   end
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
     session[:user] = user
-    redirect('/')
+    user == 'Unsuccessful' ? redirect('/sessions/new') : redirect('/')
   end
 
   get '/users/new' do
