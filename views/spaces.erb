@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <h1> Spaces </h1>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Description</th>
+        <th scope="col">Number of Bedrooms</th>
+        <th scope="col">Price per Night</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @spaces.each do |space| %>
+      <tr>
+        <td> <%= space.name %> </td>
+        <td> <%= space.address %> </td>
+        <td> <%= space.description %> </td>
+        <td> <%= space.no_bedrooms %> </td>
+        <td> <%= space.price_per_night %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <form action='/spaces/new' style= 'padding:350px;padding-top:50px'>
+    <button type="submit" class="btn btn-dark">Add Space</button>
+  </form>
+
+  </body>
